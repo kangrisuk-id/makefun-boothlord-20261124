@@ -61,6 +61,7 @@ All figures are from the kit's own grader (`grade-local`, process driver) on the
 More honesty, because the headline hides a lot:
 
 - The 90% interval on the dev window is **[−0.139, +0.160] SOL** — it crosses zero. Twenty trades cannot prove an edge; they can only show the loss profile is controlled.
+- The kit's stress test (10 block-resampled copies of the dev window) is blunter still: **median −0.03 SOL, p10 −0.08, p90 +0.03**, with 8 of 10 copies losing money, and the top 3 coins account for 70% of the gains. On a typical reshuffled window this bot loses a little; on the real dev window it won a little. The final window will pick one of those fates at random — the strategy's job is to make sure the losing version is small and the winning version is possible.
 - Fees are the strategy's biggest enemy: curve + transaction fees on the dev run total **0.0293 SOL**, and at double fees the same run scores **−0.0220 SOL**. The bot trades as rarely as the guardrails allow for exactly this reason.
 - Iteration trail on the same window: literal first version −0.0400 SOL (20 trips) → faster rotation −0.0257 SOL (20 trips) → spike guard added **+0.0071 SOL** (20 trips). Removing the anti-bundle filter: −0.2965 SOL. Widening the entry band down to 18 SOL: −0.0376 SOL.
 - Two executions of the final bot produce byte-identical action logs; the bot reads no clock, no environment and no randomness.
